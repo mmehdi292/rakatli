@@ -1,0 +1,60 @@
+
+{% extends 'system/main.html' %}
+{% block title %}
+  <title>راقت لي | الفيديوهات</title>
+{% endblock %}
+{% block content %}
+
+<main class="container">
+  <div class="row">
+    {% include 'system/sideBar.html' %}
+    <div class="col-md-8">
+      
+        
+          <div class="mainTitle2">
+            <h2>الفيديوهات</h2>
+          </div>
+          {% include 'system/ads_728x90.html' %}
+          <div style="clear:both;"></div>
+          <div class="row">
+          {% for v in videos.object_list %}
+          <div class="col-md-4">
+          <div class="post">
+            <img src="{{ v.image.url }}" alt="img">
+            <h5><a href="{% url 'video' v.id %}" dir="rtl" >{{ v.title|truncatechars:45  }}</a></h5>
+          </div>
+        </div>
+          {% endfor %}
+          <div style="clear:both;"><div>
+           <div class="pagination_custom">
+         <ul class="pagination">
+           {% if videos.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ videos.previous_page_number }}">الأقدم</a></li>
+            {% endif %}
+            {% for p in videos.paginator.page_range %}
+              {% if videos.number == p %}
+                <li class="page-item  active"><a class="page-link" href="?page={{p}}">{{p}}</a></li>
+              {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{p}}">{{p}}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if videos.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{videos.next_page_number }}">الأحدث</a></li>
+            {% endif %}
+          </ul> 
+      </div>
+        </div>
+        {% include 'system/ads_728x90.html' %}
+        
+    </div>
+      
+      
+      
+
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}
+ 

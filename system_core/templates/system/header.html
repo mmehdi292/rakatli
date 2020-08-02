@@ -1,0 +1,30 @@
+{% load static %}
+<header>
+      <div class="nav_bar">
+        <div class="container">
+        <ul class="right_navbar">
+          <img src="{% static 'images/logo.png' %}"  alt="Logo">
+          <li><a href="{% url 'index' %}">الرئيسية <i class="fas fa-home"></i></a></li>
+          <li><a href="{% url 'allvideo' %}">الفيديوهات <i class="fas fa-play-circle"></i> </a></li>
+          <li><a href="{% url 'allkhawatir' %}">الخواطر <i class="fas fa-feather-alt"></i></a></li>
+          <li><a href="{% url 'allsound' %}">المسموعات <i class="fas fa-volume-up"></i></a></li>
+          <li><a href="{%url 'contact' %}">اتصل بنا <i class="fas fa-envelope"></i></a></li>
+        </ul>
+        <form action="{% url 'search' %}" method='GET'>
+          <input type="text" name="search" id="search" placeholder="...ابحث عن شيء">
+        </form>
+      </div>
+      </div>
+      <div class="container ">
+          <div class="S_Login">
+            
+              <a href="#">الدخول <i class="fas fa-sign-in-alt"></i></a>
+              <span>|</span>
+              <a href="#"><i class="fas fa-user-plus"></i> التسجيل</i></a>
+  
+          </div>
+            <div class="ads_728x90">
+              <img src="{% static 'images/ads_728_x_90.png' %}" alt="ads_728x90">
+            </div>
+      </div>
+    </header>

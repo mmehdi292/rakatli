@@ -1,0 +1,68 @@
+
+{% extends 'system/main.html' %}
+{% block title %}
+  <title>راقت لي | {{video.title}}</title>
+{% endblock %}
+{% block content %}
+
+<main class="container">
+  <div class="row">
+    {% include 'system/sideBar.html' %}
+    <div class="col-md-8">
+      <div class="mainTitle2">
+        <h2>{{video.title}} <span>{{ video.views }} <i class="fas fa-eye"></i></span></h2>
+      </div>
+      <div class="videozone">
+        <iframe  src="https://www.youtube.com/embed/{{ video.url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="videoExtrabody">
+          <div class="row">
+            <div class="col-md-6"><h4><a href="">{{video.autor.username}}</a> :الرافع <i class="fas fa-cloud-upload-alt"></i></h4></div>
+            <div class="col-md-6"><h4>{{ video.date_creation }} :التاريخ <i class="fas fa-calendar-alt"></i></h4></div>
+          </div>
+          <details>
+            <summary>:الوصف</summary>
+            <p>{{ video.description }}</p>
+          </details>
+          <div class="tags">
+            <h3>:طاقات</h3>
+            <ul>
+              <li><a href="">Mehdi</a></li>
+              <li><a href="">adlan</a></li>
+              <li><a href="">nadjmo</a></li>
+              <li><a href="">ilyes</a></li>
+            </ul>
+          </div>
+        </div>
+
+        {% include 'system/ads_728x90.html' %}
+        <div style="clear:both"></div>
+        <div class="mainTitle2">
+          <h2>فيديوهات اخرى</h2>
+        </div>
+        <div class="row">
+          {% for m in more %}
+          <div class="col-md-4">
+              <div class="post">
+                  <img src="{{ m.image.url }}" alt="imqge1">
+                  <h5><a dir="rtl" href="{% url 'video' m.id %}">
+                    {{ m.title|truncatechars:45  }}
+                  </a></h5>
+                </div>
+          </div>
+          {% endfor %}
+      </div>
+
+    
+        {% include 'system/ads_728x90.html' %}
+    </div>
+
+    
+      
+      
+  </div>
+</main>
+
+
+{% endblock %}
+ 

@@ -1,0 +1,63 @@
+
+{% extends 'system/main.html' %}
+{% block title %}
+  <title>راقت لي | اتصل بنا</title>
+{% endblock %}
+{% block content %}
+
+<main class="container">
+  <div class="row">
+    {% include 'system/sideBar.html' %}
+    <div class="col-md-8">
+      
+     
+
+      <div class="mainTitle2">
+        <h2>اتصل بنا</h2>
+      </div>
+      <div class="khawatirzone" style="margin-bottom: 10px; border-radius: 0px 0px 25px 0px;">
+        <div class="post_text">
+            {% for message in messages %}
+              <p>{{  message }}</p>
+            {% endfor %}
+            <p>مرحبا بكم يشرفنا اتصلك بنا </p>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label>اثبت انك لست روبوت</label>
+                <div class="g-recaptcha" data-sitekey="6Ldg77YZAAAAAGjUkJUpGyCKT8MIE5dOPIUp2Uq7"></div>
+                <div style="clear:both;"></div>
+                <label for="name">الاسم و اللقب</label>
+                <input  type="text" id='name' name="{{ form.full_name.name }}" placeholder="ادخل اسمك و لقبك">
+
+                <label for="email">البريد الاكتروني</label>
+                <input  type="email" id="email" name="{{ form.email_sender.name }}" placeholder="ادخل بريدك الاكتروني">
+
+                <label for="subject">الموضوع</label>
+                <input type="text" name="{{ form.subject.name }}" id='subject' placeholder="عنوان الموضوع">
+
+                <label for="message">الرسالة</label>
+                <textarea name="{{ form.text.name }}" id="message" placeholder="اكتب رسالتك"></textarea>
+
+                
+
+                <input type="submit" value="ارسل">
+
+            </form>
+        </div>
+      </div>
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+      {% include 'system/ads_728x90.html' %}
+      {% include 'system/ads_728x90.html' %}
+    </div>
+      
+      
+
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}
+ 

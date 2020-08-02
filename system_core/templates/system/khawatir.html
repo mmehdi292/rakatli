@@ -1,0 +1,249 @@
+
+{% extends 'system/main.html' %}
+{% block title %}
+  <title>راقت لي | {{khawatir.title}}</title>
+{% endblock %}
+
+{% block content %}
+
+<main class="container">
+  <div class="row">
+    {% include 'system/sideBar.html' %}
+    <div class="col-md-8">
+      <div class="mainTitle2">
+        <h2>{{khawatir.title}} <span>{{ khawatir.views }} <i class="fas fa-eye"></i></span></h2>
+      </div>
+      <div class="khawatirzone">
+        <img src="{{ khawatir.image.url }}" alt="khawatir img">
+        <div class="post_text">
+         {{ khawatir.text }}
+       </div>
+      </div>
+
+     <div class="videoExtrabody">
+          <div class="row">
+            <div class="col-md-4"><h4><a href="">{{khawatir.autor.username}}</a> :الكاتب <i class="fas fa-feather-alt"></i></h4></div>
+            <div class="col-md-4"><h4>{{ khawatir.date_creation }} :التاريخ <i class="fas fa-calendar-alt"></i></h4></div>
+            <div class="col-md-2"><h4>{{khawatir.like}} <i class="fas fa-thumbs-up"></i></h4></div>
+            <div class="col-md-2"><h4>{{khawatir.deslike}} <i class="fas fa-thumbs-down"></i></h4></div>
+          </div>
+      </div>
+        {% include 'system/ads_728x90.html' %}
+        <div style="clear:both"></div>
+        <div class="mainTitle2">
+          <h2>خواطر اخرى</h2>
+        </div>
+        <div class="row">
+          {% for m in more %}
+          <div class="col-md-4">
+              <div class="post">
+                  <img src="{{ m.image.url }}" alt="imqge1">
+                  <h5><a dir="rtl" href="{% url 'khawatir' m.id %}">
+                    {{ m.title|truncatechars:45  }}
+                  </a></h5>
+                </div>
+          </div>
+          {% endfor %}
+      </div>
+       {% include 'system/ads_728x90.html' %}
+      
+        
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <title>راقت لي | الرئيسية</title>
+</head>
+<body>
+  <header>
+    <div class="nav_bar">
+      <div class="container">
+      <ul class="right_navbar">
+        <img src="images/log.png" alt="Logo">
+        <li><a href="">الرئيسية <i class="fas fa-home"></i></a></li>
+        <li><a href="">الفيديوهات <i class="fas fa-play-circle"></i> </a></li>
+        <li><a href="">الخواطر <i class="fas fa-feather-alt"></i></a></li>
+        <li><a href="">المسموعات <i class="fas fa-volume-up"></i></a></li>
+        <li><a href="">اتصل ينا <i class="fas fa-envelope"></i></a></li>
+      </ul>
+      <form action="">
+        <input type="text" name="search" id="search" placeholder="...ابحث عن شيء">
+      </form>
+    </div>
+    </div>
+    <div class="container ">
+        <div class="S_Login">
+          
+            <a href="">الدخول</a>
+            <span>|</span>
+            <a href="">التسجيل</a>
+
+        </div>
+          <div class="ads_728x90">
+            <img src="images/ads_728_x_90.png" alt="ads_728x90">
+          </div>
+    </div>
+  </header>
+  <main class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="sidecon">
+          <div class="sidetitle">مواقع التواصل الاجتماعي</div>
+          <div class="sidecontent">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente natus autem beatae mollitia voluptatem a non dolores sequi cupiditate accusamus iste tempora iusto quas et ipsa, ipsam impedit nam harum.
+          </div>
+        </div>
+
+        <div class="sidecon">
+          <div class="sidetitle">مواقع التواصل الاجتماعي</div>
+          <div class="sidecontent">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente natus autem beatae mollitia voluptatem a non dolores sequi cupiditate accusamus iste tempora iusto quas et ipsa, ipsam impedit nam harum.
+          </div>
+        </div>
+
+        <div class="sidecon">
+          <div class="sidetitle">مواقع التواصل الاجتماعي</div>
+          <div class="sidecontent">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente natus autem beatae mollitia voluptatem a non dolores sequi cupiditate accusamus iste tempora iusto quas et ipsa, ipsam impedit nam harum.
+          </div>
+        </div>
+
+        <div class="sidecon">
+          <div class="sidetitle">مواقع التواصل الاجتماعي</div>
+          <div class="sidecontent">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente natus autem beatae mollitia voluptatem a non dolores sequi cupiditate accusamus iste tempora iusto quas et ipsa, ipsam impedit nam harum.
+          </div>
+        </div>
+
+        <div class="sidecon">
+          <div class="sidetitle">مواقع التواصل الاجتماعي</div>
+          <div class="sidecontent">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente natus autem beatae mollitia voluptatem a non dolores sequi cupiditate accusamus iste tempora iusto quas et ipsa, ipsam impedit nam harum.
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-8">
+        <div class="mainTitle2">
+            <h2>عنوان الفيديو</h2>
+        </div>
+        <div class="khawatirzone">
+            <img src="images/1.jpg" alt="khawatir img">
+            <div class="post_text">
+
+                حياة بكل ما فيها تقف دائمًا على حد الوسطية بين اتزان المعنى وضده من حب وكره وحق وباطل وعدل وظلم. لايفوز بمعارك الحياة الأقوى أو الأسرع ولكن إن عاجلاً أو آجلاً الذي يفوز هو من يعتقد أنه يستطيع. ما أعجب الأشياء التي نفكر فيها في تلك المساحة بين الحياة والموت. دونه لا حياة له هو أعترف لي بذلك لا حياة له لأنه لا يملكه ليتني أستطيع الحصول عليه لأهديه له. الأمل في داخلي لا زال ينبض بالحياة. حتى تذلل مصاعب العمل حسن علاقتك برب العمل وكى تذلل مصاعب الحياة حسن علاقتك بربك.
+
+
+            </div>
+        </div>
+
+        <div class="videoExtrabody">
+            <div class="row">
+                <div class="col-md-6"><h4><a href="">mmehdi292</a> :الكاتب <i class="fas fa-feather-alt"></i></h4></div>
+                <div class="col-md-6"><h4>2020/02/02 :التاريخ <i class="fas fa-calendar-alt"></i></h4></div>
+              </div>
+        </div>
+        <div class="ads_728x90_over">
+            <img src="images/ads_728_x_90.png" alt="ads_728x90">
+        </div>
+
+        <div class="mainTitle2">
+            <h2>فيديوهات اخرى</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="post">
+                    <img src="images/3.jpg" alt="imqge1">
+                    <h5><a href="">ان عدة الشهور عند الله اثنا عشر شهرا </a></h5>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <div class="post">
+                    <img src="images/3.jpg" alt="imqge1">
+                    <h5><a href="">ان عدة الشهور عند الله اثنا عشر شهرا </a></h5>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <div class="post">
+                    <img src="images/3.jpg" alt="imqge1">
+                    <h5><a href="">ان عدة الشهور عند الله اثنا عشر شهرا </a></h5>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <div class="post">
+                    <img src="images/3.jpg" alt="imqge1">
+                    <h5><a href="">ان عدة الشهور عند الله اثنا عشر شهرا </a></h5>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <div class="post">
+                    <img src="images/3.jpg" alt="imqge1">
+                    <h5><a href="">ان عدة الشهور عند الله اثنا عشر شهرا </a></h5>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <div class="post">
+                    <img src="images/3.jpg" alt="imqge1">
+                    <h5><a href="">ان عدة الشهور عند الله اثنا عشر شهرا </a></h5>
+                  </div>
+            </div>
+        </div>
+        <div class="ads_728x90_over" style="margin-top: 10px;"> 
+            <img src="images/ads_728_x_90.png" alt="ads_728x90">
+        </div>
+     </div>
+
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p> جميع الحقوق محفوظة 2020 </p>
+      <p>موقع راقت لي </p>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

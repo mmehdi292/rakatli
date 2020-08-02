@@ -1,0 +1,19 @@
+<div class="col-md-4">
+    {% for s in sidebar %}
+    <div class="sidecon">
+      {% if s.title != 'ads' %}
+        <div class="sidetitle">{{ s.title }}</div>
+      {% endif %}
+      <div class="sidecontent">
+        {{ s.HTML |safe  }}
+      </div>
+    </div>
+    {% endfor %}
+    <div class="sidecon">
+      <div class="sidetitle">اشتركوا عبر قناتنا على اليوتيوب</div>
+      <div class="sidecontent">
+        <script src="https://apis.google.com/js/platform.js"></script>
+        <div class="g-ytsubscribe" data-channelid="UCqdTq4U0Hdzq2LZtFrXLDtg" data-layout="full" data-count="hidden"></div>
+      </div>
+    </div>
+  </div>

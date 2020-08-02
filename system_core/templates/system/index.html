@@ -1,0 +1,82 @@
+
+{% extends 'system/main.html' %}
+{% block title %}
+  <title>راقت لي | الرئيسية</title>
+{% endblock %}
+{% block content %}
+
+<main class="container">
+  <div class="row">
+    {% include 'system/sideBar.html' %}
+    <div class="col-md-8">
+      
+      <div class="row">
+        <div class="col-md-4">
+          <div class="mainTitle">
+            <h2>أخر 5 فيديوهات</h2>
+          </div>
+          {% for video in last5videos %}
+          <div class="post">
+            <img src="{{ video.image.url }}" alt="imqge1">
+            <h5><a href="{% url 'video' video.id %}">{{ video.title }}</a></h5>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="col-md-4">
+          
+          <div class="mainTitle">
+            <h2>أخر 5 خواطر</h2>
+          </div>
+          {% for k in last5khawatir %}
+          <div class="post">
+            <img src="{{ k.image.url }}" alt="imqge1">
+            <h5><a href="{% url 'khawatir' k.id %}">{{ k.title }}</a></h5>
+          </div>
+          {% endfor %}
+          
+
+        </div>
+        <div class="col-md-4">
+
+          <div class="mainTitle">
+            <h2>أخر 5 مسموعات</h2>
+          </div>
+          {% for s in last5sound %}
+          <div class="post">
+            <img src="{{ s.image.url }}" alt="imqge1">
+            <h5><a href="{% url 'sound' s.id %}">{{ s.title }}</a></h5>
+          </div>
+          {% endfor %}
+
+
+        </div>
+        
+      </div>
+      <div class="pagination_custom">
+         <ul class="pagination">
+           {% if last5videos.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ last5videos.previous_page_number }}">الأقدم</a></li>
+            {% endif %}
+            {% for p in last5videos.paginator.page_range %}
+              {% if last5videos.number == p %}
+                <li class="page-item  active"><a class="page-link" href="?page={{p}}">{{p}}</a></li>
+              {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{p}}">{{p}}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if last5videos.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{last5videos.next_page_number }}">الأحدث</a></li>
+            {% endif %}
+          </ul> 
+      </div>
+      
+      {% include 'system/ads_728x90.html' %}
+      {% include 'system/ads_728x90.html' %}
+
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}
+ 

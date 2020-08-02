@@ -1,0 +1,64 @@
+
+{% extends 'system/main.html' %}
+{% block title %}
+  <title>راقت لي | الخواطر</title>
+{% endblock %}
+{% block content %}
+
+<main class="container">
+  <div class="row">
+    {% include 'system/sideBar.html' %}
+    <div class="col-md-8">
+      
+        
+          <div class="mainTitle2">
+            <h2>الفيديوهات</h2>
+          </div>
+          {% include 'system/ads_728x90.html' %}
+          <div style="clear:both;"></div>
+          <div class="row">
+          {% for v in khawatirs.object_list %}
+          <div class="col-md-4">
+          <div class="post">
+            <img src="{{ v.image.url }}" alt="imqge1">
+            <h5><a href="{% url 'khawatir' v.id %}" dir="rtl" >{{ v.title|truncatechars:45  }}</a></h5>
+          </div>
+        </div>
+          {% endfor %}
+
+
+            <div style="clear:both;"><div>
+           <div class="pagination_custom">
+         <ul class="pagination">
+           {% if khawatirs.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ khawatirs.previous_page_number }}">الأقدم</a></li>
+            {% endif %}
+            {% for p in khawatirs.paginator.page_range %}
+              {% if khawatirs.number == p %}
+                <li class="page-item  active"><a class="page-link" href="?page={{p}}">{{p}}</a></li>
+              {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{p}}">{{p}}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if khawatirs.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{khawatirs.next_page_number }}">الأحدث</a></li>
+            {% endif %}
+          </ul> 
+      </div>
+
+
+        </div>
+        {% include 'system/ads_728x90.html' %}
+        
+        
+    </div>
+      
+      
+
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}
+ 
